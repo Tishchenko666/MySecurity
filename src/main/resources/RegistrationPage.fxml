@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.16535433070866143" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="256.0" prefWidth="458.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tish.Registration">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="9.0" prefWidth="598.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="141.0" layoutY="1.0" prefHeight="38.0" prefWidth="175.0" text="Окно регистрации" textAlignment="CENTER">
+               <font>
+                  <Font name="Times New Roman" size="20.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="349.0" prefWidth="476.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="32.0" layoutY="38.0" prefHeight="29.0" prefWidth="83.0" text="Логин" textAlignment="CENTER">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="32.0" layoutY="91.0" prefHeight="29.0" prefWidth="83.0" text="Пароль" textAlignment="CENTER">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="loginField" layoutX="137.0" layoutY="40.0" prefHeight="25.0" prefWidth="192.0" text="login">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="passField" layoutX="137.0" layoutY="93.0" prefHeight="25.0" prefWidth="192.0" text="password">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+            </PasswordField>
+            <Button fx:id="registrationButton" layoutX="145.0" layoutY="162.0" mnemonicParsing="false" onAction="#registrationButtonClicked" prefHeight="26.0" prefWidth="152.0" text="Зарегистрироваться" textAlignment="CENTER" textFill="#2485ed">
+               <font>
+                  <Font name="Times New Roman Bold" size="14.0" />
+               </font>
+            </Button>
+         </children></AnchorPane>
+  </items>
+</SplitPane>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<SplitPane dividerPositions="0.19732441471571907" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tish.User">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <Circle fill="#0daddd" layoutX="67.0" layoutY="62.0" radius="42.0" stroke="#ff9c1e" strokeType="INSIDE" />
+            <Label layoutX="49.0" layoutY="35.0" text="П" textFill="#e1c80a">
+               <font>
+                  <Font name="Times New Roman" size="49.0" />
+               </font>
+            </Label>
+            <Button fx:id="createRecButton" layoutX="11.0" layoutY="131.0" mnemonicParsing="false" onAction="#createRecButtonClicked" text="Создать запись">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="deleteRecsButton" layoutX="31.0" layoutY="185.0" mnemonicParsing="false" onAction="#deleteRecsButtonClicked" text="Удалить">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="userGenerButton" layoutX="25.0" layoutY="243.0" mnemonicParsing="false" onAction="#userGenerButtonClicked" text="Генерация">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="profileButton" layoutX="25.0" layoutY="298.0" mnemonicParsing="false" onAction="#profileButtonClicked" text="Профиль">
+               <font>
+                   <Font name="Times New Roman" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="tableButton" layoutX="25.0" layoutY="349.0" mnemonicParsing="false" onAction="#tableButtonClicked" text="Таблица">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+            </Button>
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <TableView fx:id="enterRecTable" layoutX="95.0" layoutY="68.0" prefHeight="322.0" prefWidth="363.0">
+              <columns>
+                <TableColumn fx:id="typeColumn" prefWidth="108.0" text="Тип" />
+                <TableColumn fx:id="sourceColumn" prefWidth="253.0" text="Источник" />
+              </columns>
+            </TableView>
+            <CheckBox fx:id="chooseCheckBox" disable="true" layoutX="40.0" layoutY="32.0" mnemonicParsing="false" text="Выбрать все" />
+            <TextField fx:id="searchField" layoutX="221.0" layoutY="28.0" prefHeight="25.0" prefWidth="174.0">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+            </TextField>
+            <Button fx:id="searchButton" layoutX="412.0" layoutY="28.0" mnemonicParsing="false" onAction="#searchButtonClicked" text="Искать">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+            </Button>
+         </children></AnchorPane>
+  </items>
+</SplitPane>

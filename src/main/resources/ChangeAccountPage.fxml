@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<SplitPane dividerPositions="0.16080402010050251" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="187.0" prefWidth="391.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tish.Account">
+   <items>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="29.0" prefWidth="389.0">
+         <children>
+            <Label layoutX="72.0" layoutY="-2.0" text="Изменение аккаунта">
+               <font>
+                  <Font name="Times New Roman Bold" size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="206.0" prefWidth="389.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="34.0" layoutY="24.0" text="Логин:" textAlignment="CENTER">
+               <font>
+                  <Font name="Times New Roman" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="newALoginField" layoutX="167.0" layoutY="21.0" prefHeight="29.0" prefWidth="186.0">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="newAPassField" layoutX="167.0" layoutY="67.0" prefHeight="25.0" prefWidth="186.0">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+            </PasswordField>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="34.0" layoutY="69.0" text="Пароль:" textAlignment="CENTER">
+               <font>
+                  <Font name="Times New Roman" size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="newASaveButton" layoutX="152.0" layoutY="111.0" mnemonicParsing="false" onAction="#newASaveButtonClicked" text="Сохранить">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </items>
+</SplitPane>

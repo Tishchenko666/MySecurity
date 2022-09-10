@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.14192139737991266" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="460.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tish.Main">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" layoutY="9.0" prefHeight="44.0" prefWidth="625.0" text="Добро пожаловать в MySecurity, Гость" textAlignment="CENTER">
+               <font>
+                  <Font name="System Italic" size="27.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+         <children>
+            <Button fx:id="guestGenerButton" alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="58.0" mnemonicParsing="false" onAction="#guestGenrButtonClicked" prefHeight="30.0" prefWidth="165.0" text="Генерация пароля" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="guestExitButton" alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="236.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="165.0" text="Выход" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="guestRegistrButton" alignment="CENTER" contentDisplay="CENTER" layoutX="431.0" layoutY="58.0" mnemonicParsing="false" onAction="#guestRegistrButtonClicked" prefHeight="30.0" prefWidth="165.0" text="Регистрация" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="guestEnterButton" alignment="CENTER" contentDisplay="CENTER" layoutX="431.0" layoutY="236.0" mnemonicParsing="false" onAction="#guestEnterButtonClicked" prefHeight="30.0" prefWidth="165.0" text="Вход" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Circle fill="#ff9c1e" layoutX="346.0" layoutY="166.0" radius="42.0" stroke="#ff9c1e" strokeType="INSIDE" />
+            <Label layoutX="332.0" layoutY="139.0" text="Г" textFill="#110ed7">
+               <font>
+                  <Font name="Times New Roman" size="49.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+  </items>
+</SplitPane>

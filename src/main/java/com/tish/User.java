@@ -1,5 +1,6 @@
 package com.tish;
 
+import com.tish.models.TableRecord;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;

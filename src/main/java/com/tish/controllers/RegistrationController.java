@@ -1,4 +1,4 @@
-package com.tish;
+package com.tish.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -8,7 +8,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class Registration {
+public class RegistrationController {
   @FXML
   TextField loginField;
   @FXML
@@ -21,7 +21,7 @@ public class Registration {
 
 
 
-  public Registration() {
+  public RegistrationController() {
   }
 
   @FXML
@@ -42,8 +42,8 @@ public class Registration {
     while ((line = bufferedReader.readLine()) != null) {
       accountFile = line;
       if (accountData.equals(accountFile)) {
-        Welcome nextStep = new Welcome();
-        nextStep.WindowCreate("Войти в аккаунт");
+        WelcomeController nextStep = new WelcomeController();
+        nextStep.windowCreate("Войти в аккаунт");
         break;
       }
     }

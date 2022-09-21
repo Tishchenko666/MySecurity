@@ -1,11 +1,11 @@
-package com.tish;
+package com.tish.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
 import java.io.*;
 
-public class Record {
+public class RecordController {
 
   @FXML
   TextField sourсeField;
@@ -17,7 +17,7 @@ public class Record {
   String tRec = "Pin 9134 аро";
   String tRec2 = "Pin 9134 ароn";
 
-  public Record() {
+  public RecordController() {
   }
 
   @FXML

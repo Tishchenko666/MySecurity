@@ -1,10 +1,10 @@
-package com.tish;
+package com.tish.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
-public class PassGenerator {
+public class PassGenerationController {
   @FXML
   RadioButton generPassRB;
   @FXML
@@ -12,7 +12,7 @@ public class PassGenerator {
   @FXML
   TextField genedPassField;
 
-  public PassGenerator() {
+  public PassGenerationController() {
   }
 
   @FXML

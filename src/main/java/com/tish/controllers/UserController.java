@@ -111,7 +111,7 @@ public class User {
   }
 
   public void userGenerButtonClicked() throws IOException {
-    Welcome nextStep = new Welcome();
+    WelcomeController nextStep = new WelcomeController();
     nextStep.WindowCreate("Генерация пароля");
   }
 

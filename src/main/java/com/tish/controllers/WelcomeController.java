@@ -9,11 +9,11 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
-public class Welcome {
+public class WelcomeController {
   Stage window = new Stage();
   Parent root;
   Scene scene;
-  public Welcome() {
+  public WelcomeController() {
   }
 
   void WindowCreate(String buttonName) throws IOException {

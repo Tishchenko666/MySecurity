@@ -12,7 +12,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Account {
+public class AccountController {
   @FXML
   TextField accountLoginField;
   @FXML
@@ -30,7 +30,7 @@ public class Account {
   Parent root;
   Scene scene;
 
-  public Account() {
+  public AccountController() {
   }
 
   @FXML

@@ -8,7 +8,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class Registration {
+public class RegistrationController {
   @FXML
   TextField loginField;
   @FXML
@@ -21,7 +21,7 @@ public class Registration {
 
 
 
-  public Registration() {
+  public RegistrationController() {
   }
 
   @FXML
@@ -42,7 +42,7 @@ public class Registration {
     while ((line = bufferedReader.readLine()) != null) {
       accountFile = line;
       if (accountData.equals(accountFile)) {
-        Welcome nextStep = new Welcome();
+        WelcomeController nextStep = new WelcomeController();
         nextStep.WindowCreate("Войти в аккаунт");
         break;
       }

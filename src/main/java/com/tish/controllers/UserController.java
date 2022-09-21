@@ -1,4 +1,4 @@
-package com.tish;
+package com.tish.controllers;
 
 import com.tish.models.TableRecord;
 import javafx.beans.value.ChangeListener;
@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.net.URL;
 
-public class User {
+public class UserController {
   Stage window = new Stage();
   Parent root;
   Scene scene;
@@ -31,7 +31,7 @@ public class User {
   @FXML
   TableColumn<TableRecord, String> sourceColumn;
 
-  public User() {
+  public UserController() {
   }
 
   @FXML
@@ -111,8 +111,8 @@ public class User {
   }
 
   public void userGenerButtonClicked() throws IOException {
-    Welcome nextStep = new Welcome();
-    nextStep.WindowCreate("Генерация пароля");
+    WelcomeController nextStep = new WelcomeController();
+    nextStep.windowCreate("Генерация пароля");
   }
 
   public void profileButtonClicked() throws IOException {

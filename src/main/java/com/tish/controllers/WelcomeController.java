@@ -1,4 +1,4 @@
-package com.tish;
+package com.tish.controllers;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,14 +9,15 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
-public class Welcome {
+public class WelcomeController {
   Stage window = new Stage();
   Parent root;
   Scene scene;
-  public Welcome() {
+
+  public WelcomeController() {
   }
 
-  void WindowCreate(String buttonName) throws IOException {
+  public void windowCreate(String buttonName) throws IOException {
     URL url;
     switch (buttonName) {
       case "Генерация пароля":

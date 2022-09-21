@@ -1,4 +1,4 @@
-package com.tish;
+package com.tish.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
@@ -7,7 +7,7 @@ import javafx.scene.control.TextField;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class RecordCreater {
+public class RecordCreationController {
 
   @FXML
   TextField newSourсeField;
@@ -20,7 +20,7 @@ public class RecordCreater {
 
   String newRecord;
 
-  public RecordCreater() {
+  public RecordCreationController() {
   }
 
   @FXML

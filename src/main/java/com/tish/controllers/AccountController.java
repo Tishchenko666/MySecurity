@@ -1,4 +1,4 @@
-package com.tish;
+package com.tish.controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

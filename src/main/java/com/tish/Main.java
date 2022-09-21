@@ -1,5 +1,6 @@
 package com.tish;
 
+import com.tish.controllers.WelcomeController;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,19 +33,18 @@ public class Main extends Application {
 
     @FXML
     public void guestGenrButtonClicked() throws IOException {
-        Welcome nextStep = new Welcome();
-        nextStep.WindowCreate("Генерация пароля");
+        WelcomeController nextStep = new WelcomeController();
+        nextStep.windowCreate("Генерация пароля");
     }
 
     public void guestRegistrButtonClicked() throws IOException {
-        Welcome nextStep = new Welcome();
-        nextStep.WindowCreate("Регистрация");
+        WelcomeController nextStep = new WelcomeController();
+        nextStep.windowCreate("Регистрация");
     }
 
     public void guestEnterButtonClicked() throws IOException {
-        Welcome nextStep = new Welcome();
-        nextStep.WindowCreate("Вход");
+        WelcomeController nextStep = new WelcomeController();
+        nextStep.windowCreate("Вход");
     }
-
 
 }

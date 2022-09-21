@@ -1,4 +1,4 @@
-package com.tish;
+package com.tish.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -43,7 +43,7 @@ public class RegistrationController {
       accountFile = line;
       if (accountData.equals(accountFile)) {
         WelcomeController nextStep = new WelcomeController();
-        nextStep.WindowCreate("Войти в аккаунт");
+        nextStep.windowCreate("Войти в аккаунт");
         break;
       }
     }

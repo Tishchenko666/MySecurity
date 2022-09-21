@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 
 <SplitPane dividerPositions="0.10301507537688442" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="324.0" prefWidth="354.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller = "com.tish.PassGenerator">
+           fx:controller = "com.tish.controllers.PassGenerationController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
          <children>

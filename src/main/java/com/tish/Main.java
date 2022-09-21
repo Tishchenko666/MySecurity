@@ -1,15 +1,15 @@
 package com.tish;
 
-import com.tish.controllers.WelcomeController;
+//import com.tish.controllers.WelcomeController;
 import javafx.application.Application;
-import javafx.fxml.FXML;
+//import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.io.IOException;
+//import java.io.IOException;
 import java.net.URL;
 
 public class Main extends Application {
@@ -29,22 +29,6 @@ public class Main extends Application {
         primaryStage.setResizable(false);
 
         primaryStage.show();
-    }
-
-    @FXML
-    public void guestGenrButtonClicked() throws IOException {
-        WelcomeController nextStep = new WelcomeController();
-        nextStep.windowCreate("Генерация пароля");
-    }
-
-    public void guestRegistrButtonClicked() throws IOException {
-        WelcomeController nextStep = new WelcomeController();
-        nextStep.windowCreate("Регистрация");
-    }
-
-    public void guestEnterButtonClicked() throws IOException {
-        WelcomeController nextStep = new WelcomeController();
-        nextStep.windowCreate("Вход");
     }
 
 }

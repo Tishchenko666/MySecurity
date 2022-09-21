@@ -43,7 +43,7 @@ public class RegistrationController {
       accountFile = line;
       if (accountData.equals(accountFile)) {
         WelcomeController nextStep = new WelcomeController();
-        nextStep.windowCreate("Войти в аккаунт");
+        nextStep.changePage("Войти в аккаунт");
         break;
       }
     }

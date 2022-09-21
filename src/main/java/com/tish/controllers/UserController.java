@@ -112,7 +112,7 @@ public class UserController {
 
   public void userGenerButtonClicked() throws IOException {
     WelcomeController nextStep = new WelcomeController();
-    nextStep.windowCreate("Генерация пароля");
+    nextStep.changePage("Генерация пароля");
   }
 
   public void profileButtonClicked() throws IOException {

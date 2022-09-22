@@ -35,7 +35,6 @@ public class WelcomeController {
     }
 
     private void windowCreate(String buttonName) {
-
         switch (buttonName) {
             case "Генерация пароля":
                 loadPage("src/main/resources/GuestGenerationPage.fxml");

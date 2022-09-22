@@ -93,6 +93,7 @@ public class UserController {
     });
   }
 
+  @FXML
   public void createRecButtonClicked() throws IOException {
     URL url = new File("src/main/resources/NewRecordPage.fxml").toURI().toURL();
     root = FXMLLoader.load(url);
@@ -103,6 +104,7 @@ public class UserController {
     window.show();
   }
 
+  @FXML
   public void deleteRecsButtonClicked() throws IOException {
     enterRecTable.getItems().removeAll(tableList);
     FileWriter writer = new FileWriter("Records.txt");
@@ -110,11 +112,13 @@ public class UserController {
     writer.close();
   }
 
+  @FXML
   public void userGenerButtonClicked() throws IOException {
     WelcomeController nextStep = new WelcomeController();
     nextStep.changePage("Генерация пароля");
   }
 
+  @FXML
   public void profileButtonClicked() throws IOException {
     URL url = new File("src/main/resources/AccountPage.fxml").toURI().toURL();
     root = FXMLLoader.load(url);
@@ -125,6 +129,7 @@ public class UserController {
     window.show();
   }
 
+  @FXML
   public void searchButtonClicked() {
     String sRec = searchField.getText();
     TableRecord tr;
@@ -150,8 +155,5 @@ public class UserController {
         }
       }
     }
-
-
   }
-
 }

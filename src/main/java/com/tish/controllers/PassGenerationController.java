@@ -21,7 +21,7 @@ public class PassGenerationController {
         genedPassField.setText(generation());
     }
 
-    public String generation() {
+    private String generation() {
         String pass = "";
         if (generPassRB.isSelected()) {
             int number = (int) (Math.random() * 8 + 13);

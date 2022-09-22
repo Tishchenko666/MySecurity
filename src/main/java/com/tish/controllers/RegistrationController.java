@@ -14,12 +14,6 @@ public class RegistrationController {
   @FXML
   TextField passField;
 
-  @FXML
-  TextField enterLoginField;
-  @FXML
-  TextField enterPassField;
-
-
 
   public RegistrationController() {
   }
@@ -32,22 +26,4 @@ public class RegistrationController {
     writer.close();
   }
 
-  @FXML
-  public void enterAccountButtonClicked() throws IOException {
-    FileReader reader = new FileReader("Accounts.txt");
-    BufferedReader bufferedReader = new BufferedReader(reader);
-    String accountData = enterLoginField.getText().concat(" ").concat(enterPassField.getText());
-    String accountFile = "";
-    String line;
-    while ((line = bufferedReader.readLine()) != null) {
-      accountFile = line;
-      if (accountData.equals(accountFile)) {
-        WelcomeController nextStep = new WelcomeController();
-        nextStep.changePage("Войти в аккаунт");
-        break;
-      }
-    }
-    reader.close();
-    bufferedReader.close();
-  }
 }

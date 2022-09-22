@@ -43,7 +43,7 @@ public class RecordCreationController {
         writer.close();
     }
 
-    public String generation() {
+    private String generation() {
         String pass = "";
         if (newPassRB.isSelected()) {
             int number = (int) (Math.random() * 8 + 13);

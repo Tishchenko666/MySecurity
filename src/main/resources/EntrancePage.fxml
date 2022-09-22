@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <SplitPane dividerPositions="0.16535433070866143" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
            minWidth="-Infinity" orientation="VERTICAL" prefHeight="256.0" prefWidth="458.0"
            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="com.tish.controllers.RegistrationController">
+           fx:controller="com.tish.controllers.EntranceController">
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="9.0" prefWidth="598.0">
             <children>
                 <Label alignment="CENTER" contentDisplay="CENTER" layoutX="141.0" layoutY="1.0" prefHeight="38.0"
-                       prefWidth="175.0" text="Окно регистрации" textAlignment="CENTER">
+                       prefWidth="175.0" text="Окно входа" textAlignment="CENTER">
                     <font>
                         <Font name="Times New Roman" size="20.0"/>
                     </font>
@@ -35,21 +34,20 @@
                         <Font name="Times New Roman" size="14.0"/>
                     </font>
                 </Label>
-                <TextField fx:id="loginField" layoutX="137.0" layoutY="40.0" prefHeight="25.0" prefWidth="192.0"
-                           text="login">
+                <TextField fx:id="enterLoginField" layoutX="137.0" layoutY="40.0" prefHeight="25.0" prefWidth="192.0">
                     <font>
                         <Font name="Times New Roman" size="14.0"/>
                     </font>
                 </TextField>
-                <PasswordField fx:id="passField" layoutX="137.0" layoutY="93.0" prefHeight="25.0" prefWidth="192.0"
-                               text="password">
+                <PasswordField fx:id="enterPassField" layoutX="137.0" layoutY="93.0" prefHeight="25.0"
+                               prefWidth="192.0">
                     <font>
                         <Font name="Times New Roman" size="14.0"/>
                     </font>
                 </PasswordField>
-                <Button fx:id="registrationButton" layoutX="145.0" layoutY="162.0" mnemonicParsing="false"
-                        onAction="#registrationButtonClicked" prefHeight="26.0" prefWidth="152.0"
-                        text="Зарегистрироваться" textAlignment="CENTER" textFill="#2485ed">
+                <Button fx:id="enterAccountButton" layoutX="145.0" layoutY="162.0" mnemonicParsing="false"
+                        onAction="#enterAccountButtonClicked" prefHeight="26.0" prefWidth="152.0" text="Войти в акаунт"
+                        textAlignment="CENTER" textFill="#2485ed">
                     <font>
                         <Font name="Times New Roman Bold" size="14.0"/>
                     </font>

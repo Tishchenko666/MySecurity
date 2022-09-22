@@ -43,7 +43,7 @@ public class WelcomeController {
                 loadPage("src/main/resources/RegistrationPage.fxml");
                 break;
             case "Вход":
-                loadPage("src/main/resources/EnterPage.fxml");
+                loadPage("src/main/resources/EntrancePage.fxml");
                 break;
             case "Войти в аккаунт":
                 loadPage("src/main/resources/UserPage.fxml");

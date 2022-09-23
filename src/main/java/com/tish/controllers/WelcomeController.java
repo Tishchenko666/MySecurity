@@ -1,5 +1,6 @@
 package com.tish.controllers;
 
+import com.tish.utils.StageUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,9 +12,8 @@ import java.io.IOException;
 //import java.net.URL;
 
 public class WelcomeController {
-    Stage window = new Stage();
-    Parent root;
-    Scene scene;
+
+    //private final String PAGE_SOURCE = "src/main/resources/";
 
     @FXML
     private void guestGenrButtonClicked() throws IOException {
@@ -37,30 +37,25 @@ public class WelcomeController {
     private void windowCreate(String buttonName) {
         switch (buttonName) {
             case "Генерация пароля":
-                loadPage("src/main/resources/GuestGenerationPage.fxml");
+                openWindow("GuestGenerationPage.fxml");
                 break;
             case "Регистрация":
-                loadPage("src/main/resources/RegistrationPage.fxml");
+                openWindow("RegistrationPage.fxml");
                 break;
             case "Вход":
-                loadPage("src/main/resources/EntrancePage.fxml");
+                openWindow("EntrancePage.fxml");
                 break;
             case "Войти в аккаунт":
-                loadPage("src/main/resources/UserPage.fxml");
+                loadPage("UserPage.fxml");
                 break;
         }
     }
 
-    private void loadPage(String fileAddress) {
-        try {
-            root = FXMLLoader.load(new File(fileAddress).toURI().toURL());
-            scene = new Scene(root);
-            window.setScene(scene);
-            window.setTitle("MySecurity");
-            window.setResizable(false);
-            window.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private void loadPage(String fileName) {
+        StageUtils.changePage(fileName);
+    }
+
+    private void openWindow(String fileName) {
+        StageUtils.openPage(fileName);
     }
 }

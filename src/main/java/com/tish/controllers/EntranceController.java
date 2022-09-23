@@ -1,5 +1,6 @@
 package com.tish.controllers;
 
+import com.tish.utils.StageUtils;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
@@ -26,8 +27,10 @@ public class EntranceController {
         while ((line = bufferedReader.readLine()) != null) {
             accountFile = line;
             if (accountData.equals(accountFile)) {
-                WelcomeController nextStep = new WelcomeController();
-                nextStep.changePage("Войти в аккаунт");
+                //WelcomeController nextStep = new WelcomeController();
+                //nextStep.changePage("Войти в аккаунт");
+                StageUtils.changePage("UserPage.fxml");
+                StageUtils.getTempStage().close();
                 break;
             }
         }

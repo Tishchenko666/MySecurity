@@ -1,6 +1,7 @@
 package com.tish;
 
 //import com.tish.controllers.WelcomeController;
+import com.tish.utils.StageUtils;
 import javafx.application.Application;
 //import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,11 +21,13 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        URL url = new File("src/main/resources/WelcomePage.fxml").toURI().toURL();
+        /*URL url = new File("src/main/resources/WelcomePage.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(url);
         Scene scene = new Scene(root);
-        primaryStage.setScene(scene);
+        primaryStage.setScene(scene);*/
 
+        primaryStage = StageUtils.getInstance(primaryStage);
+        StageUtils.changePage("WelcomePage.fxml");
         primaryStage.setTitle("MySecurity");
         primaryStage.setResizable(false);
 

@@ -12,5 +12,9 @@
         <property name="show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
 
+        <mapping class="com.tish.models.User"/>
+        <mapping class="com.tish.models.BaseData"/>
+        <mapping class="com.tish.models.PinData"/>
+        <mapping class="com.tish.models.PasswordData"/>
     </session-factory>
 </hibernate-configuration>

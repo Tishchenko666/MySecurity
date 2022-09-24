@@ -1,11 +1,24 @@
 package com.tish.models;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
-public class BaseData {
+@Entity
+@Table(name = "records", uniqueConstraints = {@UniqueConstraint(columnNames = {"id"})})
+public class BaseData extends BaseEntity {
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "data_type", nullable = false)
     private RecordType type;
+
+    @Column(name = "creation_date")
     private LocalDate creationDate;
+
+    @Column(name = "source")
     private String source;
+
+    @Column(name = "p_id")
+    private Long pId;
 
     public BaseData(RecordType type, LocalDate creationDate, String source) {
         this.type = type;
@@ -38,5 +51,13 @@ public class BaseData {
 
     public void setSource(String source) {
         this.source = source;
+    }
+
+    public Long getpId() {
+        return pId;
+    }
+
+    public void setpId(Long pId) {
+        this.pId = pId;
     }
 }

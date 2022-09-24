@@ -34,7 +34,7 @@ public class AccountController {
   }
 
   @FXML
-  public void changeADButtonClicked() throws IOException {
+  private void changeADButtonClicked() throws IOException {
     URL url = new File("src/main/resources/ChangeAccountPage.fxml").toURI().toURL();
     root = FXMLLoader.load(url);
     scene = new Scene(root);
@@ -45,7 +45,7 @@ public class AccountController {
   }
 
   @FXML
-  public void newASaveButtonClicked() throws IOException {
+  private void newASaveButtonClicked() throws IOException {
     String accountFile = "София 12345678";
     String newAccountData = newALoginField.getText().concat(" ").concat(newAPassField.getText());
     String line;
@@ -74,11 +74,11 @@ public class AccountController {
 
 
   @FXML
-  public void viewADButtonClicked() throws IOException {
+  private void viewADButtonClicked() throws IOException {
     setAccount();
   }
 
-  public void setAccount() throws IOException {
+  private void setAccount() throws IOException {
     FileReader reader = new FileReader("Accounts.txt");
     BufferedReader bufferedReader = new BufferedReader(reader);
     accountFile = bufferedReader.readLine();

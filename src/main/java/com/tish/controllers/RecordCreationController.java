@@ -1,5 +1,6 @@
 package com.tish.controllers;
 
+import com.tish.utils.GenerationUtils;
 import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -9,51 +10,51 @@ import java.io.IOException;
 
 public class RecordCreationController {
 
-  @FXML
-  TextField newSourсeField;
-  @FXML
-  RadioButton newPassRB;
-  @FXML
-  RadioButton newPinRB;
-  @FXML
-  TextField newPassField;
+    @FXML
+    TextField newSourсeField;
+    @FXML
+    RadioButton newPassRB;
+    @FXML
+    RadioButton newPinRB;
+    @FXML
+    TextField newPassField;
 
-  String newRecord;
+    String newRecord;
 
-  public RecordCreationController() {
-  }
-
-  @FXML
-  public void newGenerButtonClicked() {
-    newPassField.setText(generation());
-  }
-
-  @FXML
-  public void newSaveButtonClicked() throws IOException {
-    FileWriter writer = new FileWriter("Records.txt", true);
-    newRecord = "";
-    if (newPassRB.isSelected())
-      newRecord = newRecord.concat("Password ");
-    else
-      newRecord = newRecord.concat("Pin ");
-
-    newRecord = newRecord.concat(newPassField.getText()).concat(" ").concat(newSourсeField.getText()).concat("\n");
-    writer.write(newRecord);
-    writer.close();
-  }
-
-  public String generation() {
-    String pass = "";
-    if (newPassRB.isSelected()) {
-      int number = (int) (Math.random() * 8 + 13);
-      pass = passGenerator(number);
-    } else if (newPinRB.isSelected()) {
-      pass = String.valueOf(pinGenerator());
+    public RecordCreationController() {
     }
-    return pass;
-  }
 
-  private String passGenerator(int length) {
+    @FXML
+    public void newGenerButtonClicked() {
+        newPassField.setText(generation());
+    }
+
+    @FXML
+    public void newSaveButtonClicked() throws IOException {
+        FileWriter writer = new FileWriter("Records.txt", true);
+        newRecord = "";
+        if (newPassRB.isSelected())
+            newRecord = newRecord.concat("Password ");
+        else
+            newRecord = newRecord.concat("Pin ");
+
+        newRecord = newRecord.concat(newPassField.getText()).concat(" ").concat(newSourсeField.getText()).concat("\n");
+        writer.write(newRecord);
+        writer.close();
+    }
+
+    private String generation() {
+        String pass = "";
+        if (newPassRB.isSelected()) {
+            int number = (int) (Math.random() * 8 + 13);
+            pass = GenerationUtils.passGenerator(number);
+        } else if (newPinRB.isSelected()) {
+            pass = GenerationUtils.pinGenerator();
+        }
+        return pass;
+    }
+
+  /*private String passGenerator(int length) {
     String pass = "";
     char c;
     for (int i = 0; i < length; i++) {
@@ -65,5 +66,5 @@ public class RecordCreationController {
 
   private int pinGenerator() {
     return (int) (Math.random() * 1000 + 9000);
-  }
+  }*/
 }

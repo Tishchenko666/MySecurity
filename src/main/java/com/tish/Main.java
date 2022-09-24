@@ -1,16 +1,13 @@
 package com.tish;
 
-import com.tish.controllers.WelcomeController;
+//import com.tish.controllers.WelcomeController;
+import com.tish.utils.StageUtils;
 import javafx.application.Application;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+//import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
+//import java.io.IOException;
+
 
 public class Main extends Application {
 
@@ -20,31 +17,16 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        URL url = new File("src/main/resources/WelcomePage.fxml").toURI().toURL();
+        /*URL url = new File("src/main/resources/WelcomePage.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(url);
         Scene scene = new Scene(root);
-        primaryStage.setScene(scene);
+        primaryStage.setScene(scene);*/
 
+        primaryStage = StageUtils.getInstance(primaryStage);
+        StageUtils.changePage("pages/WelcomePage.fxml");
         primaryStage.setTitle("MySecurity");
         primaryStage.setResizable(false);
 
         primaryStage.show();
     }
-
-    @FXML
-    public void guestGenrButtonClicked() throws IOException {
-        WelcomeController nextStep = new WelcomeController();
-        nextStep.windowCreate("Генерация пароля");
-    }
-
-    public void guestRegistrButtonClicked() throws IOException {
-        WelcomeController nextStep = new WelcomeController();
-        nextStep.windowCreate("Регистрация");
-    }
-
-    public void guestEnterButtonClicked() throws IOException {
-        WelcomeController nextStep = new WelcomeController();
-        nextStep.windowCreate("Вход");
-    }
-
 }

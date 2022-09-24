@@ -2,12 +2,7 @@ package com.tish.controllers;
 
 import com.tish.utils.StageUtils;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
-import java.io.File;
 import java.io.IOException;
 //import java.net.URL;
 
@@ -46,13 +41,13 @@ public class WelcomeController {
                 openWindow("EntrancePage.fxml");
                 break;
             case "Войти в аккаунт":
-                loadPage("UserPage.fxml");
+                loadPage();
                 break;
         }
     }
 
-    private void loadPage(String fileName) {
-        StageUtils.changePage(fileName);
+    private void loadPage() {
+        StageUtils.changePage("UserPage.fxml");
     }
 
     private void openWindow(String fileName) {

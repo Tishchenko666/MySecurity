@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class StageUtils {
 
-    private static final String PAGE_SOURCE = "src/main/resources/";
+    private static final String PAGE_SOURCE = "src/main/resources/pages/";
 
     private static Stage mainStage;
     private static Stage tempStage;

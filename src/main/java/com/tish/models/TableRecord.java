@@ -3,6 +3,7 @@ package com.tish.models;
 import javafx.beans.property.SimpleStringProperty;
 
 public class TableRecord {
+    private Long recordId;
     SimpleStringProperty dataType;
     SimpleStringProperty dataSource;
     SimpleStringProperty dataCreationDate;
@@ -13,10 +14,19 @@ public class TableRecord {
         this.dataSource = new SimpleStringProperty(ds);
     }
 
-    public TableRecord(String dt, String ds, String dcd) {
+    public TableRecord(Long recordId, String dt, String ds, String dcd) {
+        this.recordId = recordId;
         this.dataType = new SimpleStringProperty(dt);
         this.dataSource = new SimpleStringProperty(ds);
         this.dataCreationDate = new SimpleStringProperty(dcd);
+    }
+
+    public Long getRecordId() {
+        return recordId;
+    }
+
+    public void setRecordId(Long recordId) {
+        this.recordId = recordId;
     }
 
     public String getDataType() {

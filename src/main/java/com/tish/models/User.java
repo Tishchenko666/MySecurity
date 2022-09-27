@@ -1,7 +1,18 @@
 package com.tish.models;
 
-public class User {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
+@Entity
+@Table(name = "accounts", uniqueConstraints = {@UniqueConstraint(columnNames = "id")})
+public class User extends BaseEntity{
+
+    @Column(name = "login", nullable = false)
     private String login;
+
+    @Column(name = "password", nullable = false)
     private String password;
 
     public User(String login, String password) {

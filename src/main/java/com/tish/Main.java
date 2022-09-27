@@ -23,7 +23,7 @@ public class Main extends Application {
         primaryStage.setScene(scene);*/
 
         primaryStage = StageUtils.getInstance(primaryStage);
-        StageUtils.changePage("pages/WelcomePage.fxml");
+        StageUtils.changePage("WelcomePage.fxml");
         primaryStage.setTitle("MySecurity");
         primaryStage.setResizable(false);
 

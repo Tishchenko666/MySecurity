@@ -1,17 +1,24 @@
 package com.tish.models;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
-public class PinData extends BaseData {
+@Entity
+@Table(name = "pins", uniqueConstraints = {@UniqueConstraint(columnNames = {"id"})})
+public class PinData extends BaseEntity {
+
+    @Column(name = "pin", nullable = false)
     private Integer pin;
 
+    @OneToOne
+    private BaseData data;
+
     public PinData(RecordType type, LocalDate creationDate, String source, Integer pin) {
-        super(type, creationDate, source);
         this.pin = pin;
+        data = new BaseData(type, creationDate, source);
     }
 
     public PinData() {
-        super();
     }
 
     public Integer getPin() {
@@ -20,5 +27,13 @@ public class PinData extends BaseData {
 
     public void setPin(Integer pin) {
         this.pin = pin;
+    }
+
+    public BaseData getData() {
+        return data;
+    }
+
+    public void setData(BaseData data) {
+        this.data = data;
     }
 }

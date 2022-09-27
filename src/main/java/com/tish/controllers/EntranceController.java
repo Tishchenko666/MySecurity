@@ -1,12 +1,14 @@
 package com.tish.controllers;
 
+import com.tish.dbconnectors.AccountConnector;
+import com.tish.models.User;
 import com.tish.utils.StageUtils;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
-import java.io.BufferedReader;
+/*import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
+import java.io.IOException;*/
 
 public class EntranceController {
     @FXML
@@ -18,8 +20,8 @@ public class EntranceController {
     }
 
     @FXML
-    public void enterAccountButtonClicked() throws IOException {
-        FileReader reader = new FileReader("Accounts.txt");
+    public void enterAccountButtonClicked() /*throws IOException*/ {
+        /*FileReader reader = new FileReader("Accounts.txt");
         BufferedReader bufferedReader = new BufferedReader(reader);
         String accountData = enterLoginField.getText().concat(" ").concat(enterPassField.getText());
         String accountFile = "";
@@ -35,6 +37,13 @@ public class EntranceController {
             }
         }
         reader.close();
-        bufferedReader.close();
+        bufferedReader.close();*/
+
+        Long id = AccountConnector.checkAccount(new User(enterLoginField.getText(), enterPassField.getText()));
+        if (id > 0) {
+            StageUtils.changePage("UserPage.fxml");
+            StageUtils.getTempStage().close();
+        }
+        // todo: add error comment to entrance page in if-else
     }
 }

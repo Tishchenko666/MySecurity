@@ -9,6 +9,13 @@ public class BaseEntity {
     @Column(name = "id", nullable = false, updatable = false)
     private Long id;
 
+    public BaseEntity(Long id) {
+        this.id = id;
+    }
+
+    public BaseEntity() {
+    }
+
     public Long getId() {
         return id;
     }

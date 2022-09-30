@@ -1,19 +1,22 @@
 package com.tish.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "accounts", uniqueConstraints = {@UniqueConstraint(columnNames = "id")})
-public class User extends BaseEntity{
+public class User extends BaseEntity {
 
     @Column(name = "login", nullable = false)
     private String login;
 
     @Column(name = "password", nullable = false)
     private String password;
+
+    public User(Long id, String login, String password) {
+        super(id);
+        this.login = login;
+        this.password = password;
+    }
 
     public User(String login, String password) {
         this.login = login;
@@ -38,4 +41,5 @@ public class User extends BaseEntity{
     public void setPassword(String password) {
         this.password = password;
     }
+
 }

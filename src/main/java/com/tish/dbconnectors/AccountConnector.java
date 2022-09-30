@@ -4,7 +4,8 @@ import com.tish.models.User;
 import com.tish.utils.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.TransientObjectException;
-import org.hibernate.query.Query;
+
+import javax.persistence.Query;
 
 
 public class AccountConnector {
@@ -15,13 +16,12 @@ public class AccountConnector {
 
         Query query = session.createQuery("from User where login = :user_login");
         query.setParameter("user_login", user.getLogin());
-        if (query.list().isEmpty()) {
+        if (query.getResultList().isEmpty()) {
             session.beginTransaction();
             session.save(user);
             session.getTransaction().commit();
             saved = true;
         }
-        HibernateUtils.closeSessionFactory();
         return saved;
     }
 
@@ -29,11 +29,12 @@ public class AccountConnector {
         Long id = 0L;
         Session session = HibernateUtils.getSessionFactory().openSession();
         try {
+            session.beginTransaction();
             id = (Long) session.getIdentifier(user);
         } catch (TransientObjectException e) {
             e.printStackTrace();
         } finally {
-            HibernateUtils.closeSessionFactory();
+            session.getTransaction().commit();
         }
         return id;
     }

@@ -20,6 +20,9 @@ public class BaseData extends BaseEntity {
     @Column(name = "p_id")
     private Long pId;
 
+    @Column(name = "user_id")
+    private Long userId;
+
     public BaseData(RecordType type, LocalDate creationDate, String source) {
         this.type = type;
         this.creationDate = creationDate;
@@ -59,5 +62,13 @@ public class BaseData extends BaseEntity {
 
     public void setpId(Long pId) {
         this.pId = pId;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }

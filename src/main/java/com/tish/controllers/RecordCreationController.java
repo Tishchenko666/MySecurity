@@ -1,12 +1,20 @@
 package com.tish.controllers;
 
+import com.tish.dbconnectors.DataConnector;
+import com.tish.models.BaseData;
+import com.tish.models.PasswordData;
+import com.tish.models.PinData;
+import com.tish.models.RecordType;
+import com.tish.utils.CurrentDataUtils;
 import com.tish.utils.GenerationUtils;
+import com.tish.utils.StageUtils;
 import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class RecordCreationController {
 
@@ -19,8 +27,6 @@ public class RecordCreationController {
     @FXML
     TextField newPassField;
 
-    String newRecord;
-
     public RecordCreationController() {
     }
 
@@ -31,7 +37,7 @@ public class RecordCreationController {
 
     @FXML
     public void newSaveButtonClicked() throws IOException {
-        FileWriter writer = new FileWriter("Records.txt", true);
+        /*FileWriter writer = new FileWriter("Records.txt", true);
         newRecord = "";
         if (newPassRB.isSelected())
             newRecord = newRecord.concat("Password ");
@@ -40,7 +46,27 @@ public class RecordCreationController {
 
         newRecord = newRecord.concat(newPassField.getText()).concat(" ").concat(newSourсeField.getText()).concat("\n");
         writer.write(newRecord);
-        writer.close();
+        writer.close();*/
+        BaseData recordBaseData = new BaseData();
+        // todo: add MyException if nothing is chosen
+        recordBaseData.setType(newPassRB.isSelected() ? RecordType.PASSWORD : RecordType.PIN);
+        recordBaseData.setSource(newSourсeField.getText());
+        recordBaseData.setCreationDate(LocalDate.now());
+        recordBaseData.setUserId(CurrentDataUtils.getCurrentUser().getId());
+
+        if (newPassRB.isSelected()) {
+            PasswordData passwordData = new PasswordData();
+            passwordData.setPassword(newPassField.getText());
+            passwordData.setData(recordBaseData);
+            DataConnector.saveRecord(recordBaseData, passwordData);
+        } else if (newPinRB.isSelected()) {
+            PinData pinData = new PinData();
+            pinData.setPin(Integer.valueOf(newPassField.getText()));
+            pinData.setData(recordBaseData);
+            DataConnector.saveRecord(recordBaseData, pinData);
+        }
+
+        StageUtils.getTempStage().close();
     }
 
     private String generation() {

@@ -5,6 +5,7 @@ import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 
 public class HibernateUtils {
     private static SessionFactory sessionFactory;
@@ -19,6 +20,7 @@ public class HibernateUtils {
                     .build();
 
             sessionFactory = metaData.getSessionFactoryBuilder().build();
+            //sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
         }
         return sessionFactory;
     }

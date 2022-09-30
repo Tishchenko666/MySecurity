@@ -3,6 +3,7 @@ package com.tish.controllers;
 import com.tish.dbconnectors.AccountConnector;
 import com.tish.models.User;
 import com.tish.utils.StageUtils;
+import com.tish.utils.CurrentDataUtils;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
@@ -38,11 +39,13 @@ public class EntranceController {
         }
         reader.close();
         bufferedReader.close();*/
-
-        Long id = AccountConnector.checkAccount(new User(enterLoginField.getText(), enterPassField.getText()));
+        User checkUser = new User(enterLoginField.getText(), enterPassField.getText());
+        Long id = AccountConnector.checkAccount(checkUser);
         if (id > 0) {
             StageUtils.changePage("UserPage.fxml");
             StageUtils.getTempStage().close();
+            checkUser.setId(id);
+            CurrentDataUtils.setCurrentUser(checkUser);
         }
         // todo: add error comment to entrance page in if-else
     }

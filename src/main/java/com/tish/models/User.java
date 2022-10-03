@@ -3,7 +3,7 @@ package com.tish.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "accounts", uniqueConstraints = {@UniqueConstraint(columnNames = "id")})
+@Table(name = "accounts")
 public class User extends BaseEntity {
 
     @Column(name = "login", nullable = false)

@@ -1,9 +1,7 @@
 package com.tish.dbconnectors;
 
 
-import com.tish.models.BaseData;
-import com.tish.models.BaseEntity;
-import com.tish.models.TableRecord;
+import com.tish.models.*;
 import com.tish.utils.CurrentDataUtils;
 import com.tish.utils.HibernateUtils;
 import org.hibernate.Session;
@@ -18,7 +16,7 @@ public class DataConnector {
         List<TableRecord> tableRecordList = new ArrayList<>();
         Session session = HibernateUtils.getSessionFactory().openSession();
 
-        Query query = session.createQuery("from BaseData where userId=:user_id");
+        Query query = session.createQuery("from BaseData where user.id=:user_id");
         query.setParameter("user_id", CurrentDataUtils.getCurrentUser().getId());
 
         session.beginTransaction();
@@ -26,23 +24,31 @@ public class DataConnector {
         session.getTransaction().commit();
 
         bases.forEach(b ->
-                tableRecordList.add(new TableRecord(b.getpId(), b.getType(), b.getSource(), b.getCreationDate()))
+                tableRecordList.add(new TableRecord(b.getType(), b.getSource(), b.getCreationDate()))
         );
 
         return tableRecordList;
     }
 
-    public static void saveRecord(BaseData baseData, BaseEntity pData) {
+    public static void savePassword(PasswordData password) {
         Session session = HibernateUtils.getSessionFactory().openSession();
-
         session.beginTransaction();
-
-        baseData.setId((Long) session.save(baseData));
-        Long pId = (Long) session.save(pData);
-        baseData.setpId(pId);
-        session.update(baseData);
+        saveBaseData(session, password.getData());
+        session.save(password);
 
         session.getTransaction().commit();
+    }
+
+    public static void savePin(PinData pin) {
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        session.beginTransaction();
+        saveBaseData(session, pin.getData());
+        session.save(pin);
+        session.getTransaction().commit();
+    }
+
+    private static void saveBaseData(Session session, BaseData baseData) {
+        session.save(baseData);
     }
 
 }

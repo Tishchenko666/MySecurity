@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "records", uniqueConstraints = {@UniqueConstraint(columnNames = {"id"})})
+@Table(name = "records")
 public class BaseData extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
@@ -17,11 +17,9 @@ public class BaseData extends BaseEntity {
     @Column(name = "source")
     private String source;
 
-    @Column(name = "p_id")
-    private Long pId;
-
-    @Column(name = "user_id")
-    private Long userId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public BaseData(RecordType type, LocalDate creationDate, String source) {
         this.type = type;
@@ -56,19 +54,11 @@ public class BaseData extends BaseEntity {
         this.source = source;
     }
 
-    public Long getpId() {
-        return pId;
+    public User getUser() {
+        return user;
     }
 
-    public void setpId(Long pId) {
-        this.pId = pId;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

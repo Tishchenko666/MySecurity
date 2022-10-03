@@ -10,7 +10,8 @@ public class PinData extends BaseEntity {
     @Column(name = "pin", nullable = false)
     private Integer pin;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "base_id")
     private BaseData data;
 
     public PinData(RecordType type, LocalDate creationDate, String source, Integer pin) {

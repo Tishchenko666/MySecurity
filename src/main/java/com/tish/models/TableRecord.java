@@ -10,7 +10,7 @@ public class TableRecord {
 
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
-    private Long recordId;
+    //private Long recordId;
     SimpleStringProperty dataType;
     SimpleStringProperty dataSource;
     SimpleObjectProperty<LocalDate> dataCreationDate;
@@ -21,20 +21,20 @@ public class TableRecord {
         this.dataSource = new SimpleStringProperty(ds);
     }
 
-    public TableRecord(Long recordId, RecordType dt, String ds, LocalDate dcd) {
-        this.recordId = recordId;
+    public TableRecord(/*Long recordId,*/RecordType dt, String ds, LocalDate dcd) {
+        //this.recordId = recordId;
         this.dataType = new SimpleStringProperty(dt.getValue());
         this.dataSource = new SimpleStringProperty(ds);
         this.dataCreationDate = new SimpleObjectProperty<>(dcd);
     }
 
-    public Long getRecordId() {
+    /*public Long getRecordId() {
         return recordId;
     }
 
     public void setRecordId(Long recordId) {
         this.recordId = recordId;
-    }
+    }*/
 
     public String getDataType() {
         return dataType.get();

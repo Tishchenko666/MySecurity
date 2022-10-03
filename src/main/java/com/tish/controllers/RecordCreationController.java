@@ -11,6 +11,7 @@ import com.tish.utils.StageUtils;
 import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -26,6 +27,9 @@ public class RecordCreationController {
     RadioButton newPinRB;
     @FXML
     TextField newPassField;
+
+    @FXML
+    ToggleGroup dataType;
 
     public RecordCreationController() {
     }
@@ -52,18 +56,18 @@ public class RecordCreationController {
         recordBaseData.setType(newPassRB.isSelected() ? RecordType.PASSWORD : RecordType.PIN);
         recordBaseData.setSource(newSourсeField.getText());
         recordBaseData.setCreationDate(LocalDate.now());
-        recordBaseData.setUserId(CurrentDataUtils.getCurrentUser().getId());
+        recordBaseData.setUser(CurrentDataUtils.getCurrentUser());
 
         if (newPassRB.isSelected()) {
             PasswordData passwordData = new PasswordData();
             passwordData.setPassword(newPassField.getText());
             passwordData.setData(recordBaseData);
-            DataConnector.saveRecord(recordBaseData, passwordData);
+            DataConnector.savePassword(passwordData);
         } else if (newPinRB.isSelected()) {
             PinData pinData = new PinData();
             pinData.setPin(Integer.valueOf(newPassField.getText()));
             pinData.setData(recordBaseData);
-            DataConnector.saveRecord(recordBaseData, pinData);
+            DataConnector.savePin(pinData);
         }
 
         StageUtils.getTempStage().close();

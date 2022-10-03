@@ -139,9 +139,8 @@ public class UserController {
     }
 
     @FXML
-    public void userGenerButtonClicked() throws IOException {
-        WelcomeController nextStep = new WelcomeController();
-        nextStep.changePage("Генерация пароля");
+    public void userGenerButtonClicked() {
+        StageUtils.openPage("GuestGenerationPage.fxml");
     }
 
     @FXML

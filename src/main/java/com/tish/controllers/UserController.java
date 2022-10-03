@@ -21,9 +21,9 @@ import java.net.URL;
 import java.time.LocalDate;
 
 public class UserController {
-    Stage window = new Stage();
+    /*Stage window = new Stage();
     Parent root;
-    Scene scene;
+    Scene scene;*/
     ObservableList<TableRecord> tableList = FXCollections.observableArrayList();
 
     @FXML

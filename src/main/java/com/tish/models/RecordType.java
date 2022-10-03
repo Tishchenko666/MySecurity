@@ -1,7 +1,7 @@
 package com.tish.models;
 
 public enum RecordType {
-    PASSWORD("password"), PIN("pin");
+    PASSWORD("Password"), PIN("Pin");
 
     private final String value;
 

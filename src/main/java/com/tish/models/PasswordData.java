@@ -11,7 +11,7 @@ public class PasswordData extends BaseEntity {
     private String password;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "base_id")
+    @JoinColumn(name = "data_id")
     private BaseData data;
 
     public PasswordData(RecordType type, LocalDate creationDate, String source, String password) {

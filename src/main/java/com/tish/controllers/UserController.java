@@ -41,7 +41,7 @@ public class UserController {
     }
 
     @FXML
-    public void tableButtonClicked() throws IOException {
+    public void tableButtonClicked() {
         /*FileReader reader = new FileReader("Records.txt");
         BufferedReader bufferedReader = new BufferedReader(reader);
         String line;
@@ -119,7 +119,7 @@ public class UserController {
     }
 
     @FXML
-    public void createRecButtonClicked() throws IOException {
+    public void createRecButtonClicked() {
         /*URL url = new File("src/main/resources/NewRecordPage.fxml").toURI().toURL();
         root = FXMLLoader.load(url);
         scene = new Scene(root);
@@ -131,11 +131,12 @@ public class UserController {
     }
 
     @FXML
-    public void deleteRecsButtonClicked() throws IOException {
+    public void deleteRecsButtonClicked() {
+        DataConnector.deleteAllRecords();
         enterRecTable.getItems().removeAll(tableList);
-        FileWriter writer = new FileWriter("Records.txt");
+        /*FileWriter writer = new FileWriter("Records.txt");
         writer.write("");
-        writer.close();
+        writer.close();*/
     }
 
     @FXML
@@ -144,14 +145,15 @@ public class UserController {
     }
 
     @FXML
-    public void profileButtonClicked() throws IOException {
-        URL url = new File("src/main/resources/AccountPage.fxml").toURI().toURL();
+    public void profileButtonClicked() {
+        StageUtils.changePage("AccountPage.fxml");
+        /*URL url = new File("src/main/resources/AccountPage.fxml").toURI().toURL();
         root = FXMLLoader.load(url);
         scene = new Scene(root);
         window.setScene(scene);
         window.setTitle("MySecurity");
         window.setResizable(false);
-        window.show();
+        window.show();*/
     }
 
     @FXML

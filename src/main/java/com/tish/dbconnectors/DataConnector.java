@@ -35,7 +35,6 @@ public class DataConnector {
         session.beginTransaction();
         saveBaseData(session, password.getData());
         session.save(password);
-
         session.getTransaction().commit();
     }
 
@@ -49,6 +48,23 @@ public class DataConnector {
 
     private static void saveBaseData(Session session, BaseData baseData) {
         session.save(baseData);
+    }
+
+    public static void deleteAllRecords() {
+        Session session = HibernateUtils.getSessionFactory().openSession();
+
+        Query query = session.createQuery("delete from BaseData where user.id=:user_id");
+        query.setParameter("user_id", CurrentDataUtils.getCurrentUser().getId());
+
+        session.beginTransaction();
+        int deleted = query.executeUpdate();
+
+        if (deleted > 0) {
+            session.createQuery("delete from PasswordData where data.id is null").executeUpdate();
+            session.createQuery("delete from PinData where data.id is null").executeUpdate();
+        }
+
+        session.getTransaction().commit();
     }
 
 }

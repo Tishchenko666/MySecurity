@@ -7,6 +7,7 @@ import com.tish.utils.HibernateUtils;
 import org.hibernate.Session;
 
 import javax.persistence.Query;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,11 +31,29 @@ public class DataConnector {
         return tableRecordList;
     }
 
+    public static PasswordData getPasswordData(BaseData data) {
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        session.beginTransaction();
+        Long id = (Long) session.getIdentifier(data);
+        PasswordData passwordData = session.get(PasswordData.class, id);
+        session.getTransaction().commit();
+        return passwordData;
+    }
+
+    public static PinData getPinData(BaseData data) {
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        session.beginTransaction();
+        Long id = (Long) session.getIdentifier(data);
+        PinData pinData = session.get(PinData.class, id);
+        session.getTransaction().commit();
+        return pinData;
+    }
+
     public static void savePassword(PasswordData password) {
         Session session = HibernateUtils.getSessionFactory().openSession();
         session.beginTransaction();
         saveBaseData(session, password.getData());
-        session.save(password);
+        session.saveOrUpdate(password);
         session.getTransaction().commit();
     }
 
@@ -42,12 +61,12 @@ public class DataConnector {
         Session session = HibernateUtils.getSessionFactory().openSession();
         session.beginTransaction();
         saveBaseData(session, pin.getData());
-        session.save(pin);
+        session.saveOrUpdate(pin);
         session.getTransaction().commit();
     }
 
     private static void saveBaseData(Session session, BaseData baseData) {
-        session.save(baseData);
+        session.saveOrUpdate(baseData);
     }
 
     public static void deleteAllRecords() {
@@ -65,6 +84,22 @@ public class DataConnector {
         }
 
         session.getTransaction().commit();
+    }
+
+    public static boolean deletePassword(PasswordData password) {
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.delete(password);
+        session.getTransaction().commit();
+        return true;
+    }
+
+    public static boolean deletePin(PinData pin) {
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.delete(pin);
+        session.getTransaction().commit();
+        return true;
     }
 
 }

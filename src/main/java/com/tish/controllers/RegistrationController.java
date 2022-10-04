@@ -27,7 +27,7 @@ public class RegistrationController {
         String accountData = loginField.getText().concat(" ").concat(passField.getText());
         writer.write(accountData);
         writer.close();*/
-        boolean saved = AccountConnector.saveAccount(new User(loginField.getText(), passField.getText()));
+        boolean saved = AccountConnector.saveAccount(new User(loginField.getText(), passField.getText()), false);
         if (saved)
             StageUtils.getTempStage().close();
         // todo: add error comment to registration page in if-else

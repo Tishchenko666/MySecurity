@@ -17,14 +17,20 @@ public class AccountConnector {
 
         Query query = session.createQuery("from User where login = :user_login");
         query.setParameter("user_login", user.getLogin());
+        session.beginTransaction();
         if (query.getResultList().isEmpty()) {
-            session.beginTransaction();
             if (update)
                 user.setId(CurrentDataUtils.getCurrentUser().getId());
             session.saveOrUpdate(user);
-            session.getTransaction().commit();
             saved = true;
+        } else {
+            User tempUser = (User) query.getSingleResult();
+            if (!tempUser.getPassword().equals(user.getPassword())) {
+                user.setId(CurrentDataUtils.getCurrentUser().getId());
+                session.update(user);
+            }
         }
+        session.getTransaction().commit();
         return saved;
     }
 

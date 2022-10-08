@@ -9,7 +9,7 @@ public class BaseData extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "data_type", nullable = false)
-    private RecordType type;
+    private RecordType dataType;
 
     @Column(name = "creation_date")
     private LocalDate creationDate;
@@ -21,8 +21,8 @@ public class BaseData extends BaseEntity {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public BaseData(RecordType type, LocalDate creationDate, String source) {
-        this.type = type;
+    public BaseData(RecordType dataType, LocalDate creationDate, String source) {
+        this.dataType = dataType;
         this.creationDate = creationDate;
         this.source = source;
     }
@@ -30,12 +30,12 @@ public class BaseData extends BaseEntity {
     public BaseData() {
     }
 
-    public RecordType getType() {
-        return type;
+    public RecordType getDataType() {
+        return dataType;
     }
 
-    public void setType(RecordType type) {
-        this.type = type;
+    public void setDataType(RecordType type) {
+        this.dataType = type;
     }
 
     public LocalDate getCreationDate() {

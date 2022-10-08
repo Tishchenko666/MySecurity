@@ -13,7 +13,6 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 
-import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 
@@ -53,7 +52,7 @@ public class RecordCreationController {
         writer.close();*/
         BaseData recordBaseData = new BaseData();
         // todo: add MyException if nothing is chosen
-        recordBaseData.setType(newPassRB.isSelected() ? RecordType.PASSWORD : RecordType.PIN);
+        recordBaseData.setDataType(newPassRB.isSelected() ? RecordType.PASSWORD : RecordType.PIN);
         recordBaseData.setSource(newSourсeField.getText());
         recordBaseData.setCreationDate(LocalDate.now());
         recordBaseData.setUser(CurrentDataUtils.getCurrentUser());

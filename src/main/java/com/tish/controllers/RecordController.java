@@ -34,8 +34,8 @@ public class RecordController {
     public RecordController() {
         TableRecord tableRecord = CurrentDataUtils.getCurrentRecord();
         BaseData data = new BaseData(RecordType.valueOf(tableRecord.getDataType()), tableRecord.getDataCreationDate(), tableRecord.getDataSource());
-        passLabel.setText(data.getType().getValue());
-        if (data.getType().equals(RecordType.PASSWORD)) {
+        passLabel.setText(data.getDataType().getValue());
+        if (data.getDataType().equals(RecordType.PASSWORD)) {
             passwordData = DataConnector.getPasswordData(data);
             pass = true;
         } else {

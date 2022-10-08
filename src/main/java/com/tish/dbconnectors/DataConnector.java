@@ -5,9 +5,9 @@ import com.tish.models.*;
 import com.tish.utils.CurrentDataUtils;
 import com.tish.utils.HibernateUtils;
 import org.hibernate.Session;
+import org.hibernate.query.NativeQuery;
 
 import javax.persistence.Query;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +25,29 @@ public class DataConnector {
         session.getTransaction().commit();
 
         bases.forEach(b ->
-                tableRecordList.add(new TableRecord(b.getType(), b.getSource(), b.getCreationDate()))
+                tableRecordList.add(new TableRecord(b.getDataType(), b.getSource(), b.getCreationDate()))
+        );
+
+        return tableRecordList;
+    }
+
+    public static List<TableRecord> getSearchRecords(String searchPart) {
+        List<TableRecord> tableRecordList = new ArrayList<>();
+        Session session = HibernateUtils.getSessionFactory().openSession();
+
+        String sql = "select * from records where user_id=:user_id and (data_type like :search_type or source like :search_source)";
+        NativeQuery nativeQuery = session.createSQLQuery(sql);
+        nativeQuery.addEntity(BaseData.class);
+        nativeQuery.setParameter("user_id", CurrentDataUtils.getCurrentUser().getId());
+        nativeQuery.setParameter("search_type", searchPart + "%");
+        nativeQuery.setParameter("search_source", "%" + searchPart + "%");
+
+        session.beginTransaction();
+        List<BaseData> bases = nativeQuery.getResultList();
+        session.getTransaction().commit();
+
+        bases.forEach(b ->
+                tableRecordList.add(new TableRecord(b.getDataType(), b.getSource(), b.getCreationDate()))
         );
 
         return tableRecordList;

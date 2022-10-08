@@ -158,8 +158,8 @@ public class UserController {
 
     @FXML
     public void searchButtonClicked() {
-        String sRec = searchField.getText();
-        TableRecord tr;
+        String searchRecord = searchField.getText();
+        /*TableRecord tr;
         if (sRec.equals("Password")) {
             for (int i = 0; i < tableList.size(); i++) {
                 tr = (TableRecord) tableList.get(i);
@@ -181,6 +181,11 @@ public class UserController {
                     enterRecTable.getItems().remove(tr);
                 }
             }
+        }*/
+        if (!tableList.isEmpty()) {
+            enterRecTable.getItems().clear();
         }
+        tableList.addAll(DataConnector.getSearchRecords(searchRecord));
+        tableList.notifyAll();
     }
 }
